@@ -2,17 +2,18 @@
 
 A polished personal portfolio built as a modern developer workstation. It combines a recruiter-friendly resume and project showcase with app windows, a command palette, a functional terminal, persisted themes, and a fast boot sequence.
 
-## Personalize it
+## Portfolio content
 
-All placeholder content is centralized:
+All resume-backed content is centralized:
 
 - `data/profile.ts` — name, headline, introduction, contact links, education, and resume path
 - `data/projects.ts` — project cards and full README-style case studies
 - `data/experience.ts` — roles, dates, locations, and accomplishments
 - `data/skills.ts` — grouped languages, frameworks, and tools
-- `public/resume.pdf` — add your real PDF here (this file is intentionally not included)
+- `public/resume.pdf` — downloadable one-page resume
 
-Bracketed values and placeholder URLs are marked for replacement.
+The project case studies summarize engineering work from the resume and correctly
+label company repositories as private.
 
 ## Run locally
 

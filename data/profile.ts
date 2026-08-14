@@ -1,26 +1,27 @@
 export const profile = {
-  // TODO: Replace every bracketed value with your real information.
-  name: "Tom Developer",
+  name: "Tom Deng",
   initials: "TD",
   role: "Software Engineer",
-  location: "[City, State]",
-  email: "hello@example.com",
+  location: "Toronto, Ontario",
+  email: "tom.deng9701@gmail.com",
+  phone: "647-831-9985",
   intro:
-    "I turn complex problems into thoughtful, reliable software—from distributed backends to polished product experiences.",
-  focus: "Currently focused on backend systems, developer tooling, and products that make difficult work feel simple.",
-  tagline: "> building software, systems, and things I find interesting.",
-  availability: "Open to software engineering opportunities",
-  github: "https://github.com/yourusername",
-  linkedin: "https://www.linkedin.com/in/yourusername",
+    "Software engineer experienced in building responsive web applications, scalable backend services, real-time systems, and reliable deployment pipelines.",
+  focus:
+    "Focused on full-stack product engineering, backend architecture, distributed systems, and developer workflows that help teams ship dependable software.",
+  tagline: "> building fast, reliable software from interface to infrastructure.",
+  availability: "Software engineer based in Toronto",
+  github: "https://github.com/shawndeng1",
+  linkedin: "https://www.linkedin.com/in/shawnd-software-engineer/",
   resumePath: "/resume.pdf",
 };
 
 export const education = [
   {
-    school: "[Your University]",
-    degree: "B.S. in Computer Science",
-    dates: "2023 — 2027",
-    location: "[City, State]",
-    detail: "Relevant coursework: Data Structures, Algorithms, Operating Systems, Databases, Distributed Systems.",
+    school: "University of Waterloo",
+    degree: "B.Sc. in Computer Engineering",
+    dates: "April 2025",
+    location: "Waterloo, Ontario",
+    detail: "Bachelor of Science in Computer Engineering.",
   },
 ];

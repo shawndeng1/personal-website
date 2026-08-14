@@ -1,4 +1,4 @@
-import { ArrowUpRight, GitFork as Github } from "lucide-react";
+import { ArrowUpRight, GitFork as Github, LockKeyhole } from "lucide-react";
 import type { Project } from "../../data/projects";
 
 export function ProjectCard({ project, onSelect }: { project: Project; onSelect: () => void }) {
@@ -16,7 +16,7 @@ export function ProjectCard({ project, onSelect }: { project: Project; onSelect:
         <div className="project-heading"><div><small>{project.label}</small><h3>{project.name}</h3></div><button onClick={onSelect} aria-label={`Open ${project.name}`}><ArrowUpRight /></button></div>
         <p>{project.description}</p>
         <div className="tag-list">{project.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div>
-        <div className="repo-meta"><Github /> <span>public repository</span><i /> <span>featured</span></div>
+        <div className="repo-meta">{project.repository === "private" ? <LockKeyhole /> : <Github />} <span>{project.repository === "private" ? "private company work" : "public repository"}</span><i /> <span>featured case study</span></div>
       </div>
     </article>
   );

@@ -14,7 +14,7 @@ test("server-renders the portfolio shell and metadata", async () => {
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   const html = await response.text();
-  assert.match(html, /<title>Tom Developer — Software Engineer<\/title>/i);
+  assert.match(html, /<title>Tom Deng — Software Engineer<\/title>/i);
   assert.match(html, /Initializing portfolio/);
   assert.match(html, /Developer environment ready/);
   assert.match(html, /og\.png/);

@@ -18,15 +18,15 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = headerStore.get("x-forwarded-host") ?? headerStore.get("host") ?? "localhost:3000";
   const protocol = headerStore.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
-  const title = "Tom Developer — Software Engineer";
-  const description = "Software engineer building useful systems and thoughtful digital products. Explore projects, experience, skills, and resume in a personal developer OS.";
+  const title = "Tom Deng — Software Engineer";
+  const description = "Toronto software engineer experienced in responsive web applications, scalable backend services, real-time systems, and reliable deployment pipelines.";
   return {
     title,
     description,
-    keywords: ["software engineer", "software developer", "portfolio", "TypeScript", "Go", "React"],
-    authors: [{ name: "Tom Developer" }],
+    keywords: ["software engineer", "Toronto", "JavaScript", "Python", "React", "Node.js"],
+    authors: [{ name: "Tom Deng" }],
     icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
-    openGraph: { title, description, type: "website", url: origin, siteName: "Tom Developer — Portfolio OS", images: [{ url: `${origin}/og.png`, width: 1536, height: 1024, alt: "Tom Developer software engineer portfolio workstation" }] },
+    openGraph: { title, description, type: "website", url: origin, siteName: "Tom Deng — Portfolio OS", images: [{ url: `${origin}/og.png`, width: 1536, height: 1024, alt: "Tom Deng software engineer portfolio workstation" }] },
     twitter: { card: "summary_large_image", title, description, images: [`${origin}/og.png`] },
   };
 }
