@@ -18,6 +18,11 @@ Bracketed values and placeholder URLs are marked for replacement.
 
 Requires Node.js 22.13 or newer.
 
+If `node --version` reports an older release, install the current Node.js LTS
+from [nodejs.org](https://nodejs.org/en/download), then close and reopen your
+terminal. The project includes `.nvmrc` and `.node-version` files for version
+managers and prints a clear message when the active runtime is too old.
+
 ```bash
 npm install
 npm run dev

@@ -6,6 +6,10 @@
     "node": ">=22.13.0"
   },
   "scripts": {
+    "preinstall": "node scripts/check-node.mjs",
+    "predev": "node scripts/check-node.mjs",
+    "prebuild": "node scripts/check-node.mjs",
+    "pretest": "node scripts/check-node.mjs",
     "dev": "vinext dev",
     "build": "vinext build",
     "start": "vinext start",
