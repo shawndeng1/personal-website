@@ -5,8 +5,8 @@ import type { AppId } from "./types";
 
 const items: { id: AppId; label: string; icon: typeof UserRound }[] = [
   { id: "about", label: "About", icon: UserRound },
-  { id: "projects", label: "Projects", icon: FolderGit2 },
   { id: "experience", label: "Experience", icon: BriefcaseBusiness },
+  { id: "projects", label: "Projects", icon: FolderGit2 },
   { id: "skills", label: "Skills", icon: Wrench },
   { id: "resume", label: "Resume", icon: FileText },
   { id: "contact", label: "Contact", icon: Mail },

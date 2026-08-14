@@ -11,8 +11,8 @@ export function CommandPalette({ open, onClose, onOpen, theme, toggleTheme }: { 
   useEffect(() => { if (open) setTimeout(() => input.current?.focus(), 30); }, [open]);
   const actions = useMemo(() => [
     { label: "About me", group: "Navigate", icon: UserRound, run: () => onOpen("about") },
-    { label: "View projects", group: "Navigate", icon: FolderGit2, run: () => onOpen("projects") },
     { label: "Open experience", group: "Navigate", icon: BriefcaseBusiness, run: () => onOpen("experience") },
+    { label: "View projects", group: "Navigate", icon: FolderGit2, run: () => onOpen("projects") },
     { label: "Inspect skills", group: "Navigate", icon: Wrench, run: () => onOpen("skills") },
     { label: "Open resume", group: "Navigate", icon: FileText, run: () => onOpen("resume") },
     { label: "Contact me", group: "Navigate", icon: Mail, run: () => onOpen("contact") },

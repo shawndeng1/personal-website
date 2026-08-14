@@ -24,15 +24,15 @@ const apps = {
 };
 
 const desktopIcons: { id: AppId; label: string; icon: typeof UserRound; tone: string }[] = [
-  { id: "about", label: "About", icon: UserRound, tone: "gold" }, { id: "projects", label: "Projects", icon: FolderGit2, tone: "blue" },
-  { id: "resume", label: "Resume", icon: FileText, tone: "paper" }, { id: "experience", label: "Experience", icon: BriefcaseBusiness, tone: "purple" },
+  { id: "about", label: "About", icon: UserRound, tone: "gold" }, { id: "experience", label: "Experience", icon: BriefcaseBusiness, tone: "purple" },
+  { id: "projects", label: "Projects", icon: FolderGit2, tone: "blue" }, { id: "resume", label: "Resume", icon: FileText, tone: "paper" },
   { id: "skills", label: "Skills", icon: Wrench, tone: "green" }, { id: "contact", label: "Contact", icon: Mail, tone: "red" },
   { id: "terminal", label: "Terminal", icon: TerminalSquare, tone: "black" },
 ];
 
 function BootScreen({ onDone }: { onDone: () => void }) {
   const reduced = useReducedMotion(); const [line, setLine] = useState(0);
-  const lines = ["Initializing portfolio…", "Loading projects…", "Loading experience…", "Developer environment ready."];
+  const lines = ["Initializing portfolio…", "Loading experience…", "Loading projects…", "Developer environment ready."];
   useEffect(() => { if (reduced) { onDone(); return; } const interval = window.setInterval(() => setLine((current) => { if (current >= lines.length - 1) { window.clearInterval(interval); window.setTimeout(onDone, 180); return current; } return current + 1; }), 170); return () => window.clearInterval(interval); }, [onDone, reduced, lines.length]);
   return <motion.div className="boot-screen" exit={{ opacity: 0 }}><div className="boot-logo">{profile.initials}</div><div className="boot-lines">{lines.map((item, index) => <p key={item} className={index <= line ? "visible" : ""}><span>{index < line ? "✓" : index === line ? "›" : "·"}</span>{item}</p>)}</div><div className="boot-progress"><motion.i animate={{ width: `${((line + 1) / lines.length) * 100}%` }} /></div></motion.div>;
 }
