@@ -23,8 +23,8 @@ export function AboutApp({ onOpen }: { onOpen: (id: AppId) => void }) {
           <p>{profile.focus}</p>
           <div className="current-meta"><MapPin /> {profile.location}</div>
           <div className="social-row">
-            <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github /></a>
-            <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin /></a>
+            <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Github /></a>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin /></a>
             <a href={`mailto:${profile.email}`} aria-label="Email"><Mail /></a>
           </div>
         </aside>

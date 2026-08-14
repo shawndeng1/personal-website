@@ -7,7 +7,7 @@ export function ProjectDetails({ project, onBack }: { project: Project; onBack: 
       <button className="text-button" onClick={onBack}><ArrowLeft /> All projects</button>
       <div className="readme-header">
         <div><p className="path-label">{project.slug} / README.md</p><h2>{project.name}</h2><p>{project.label}</p></div>
-        {(project.github || project.demo) && <div className="detail-links">{project.github && <a href={project.github} target="_blank" rel="noreferrer"><Github /> Code</a>}{project.demo && <a href={project.demo} target="_blank" rel="noreferrer"><ExternalLink /> Live demo</a>}</div>}
+        {(project.github || project.demo) && <div className="detail-links">{project.github && <a href={project.github} target="_blank" rel="noopener noreferrer"><Github /> Code</a>}{project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer"><ExternalLink /> Live demo</a>}</div>}
       </div>
       <div className="readme-layout">
         <aside><b>ON THIS PAGE</b>{["Overview","Problem","Architecture","Technologies","Challenges","Results"].map((item) => <a key={item} href={`#${item.toLowerCase()}`}>{item}</a>)}</aside>

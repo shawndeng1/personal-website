@@ -1,35 +1,33 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { headers } from "next/headers";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
+import { getSiteUrl } from "../lib/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const title = "Tom Deng — Software Engineer";
+const description = "Toronto software engineer experienced in responsive web applications, scalable backend services, real-time systems, and reliable deployment pipelines.";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export async function generateMetadata(): Promise<Metadata> {
-  const headerStore = await headers();
-  const host = headerStore.get("x-forwarded-host") ?? headerStore.get("host") ?? "localhost:3000";
-  const protocol = headerStore.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const origin = `${protocol}://${host}`;
-  const title = "Tom Deng — Software Engineer";
-  const description = "Toronto software engineer experienced in responsive web applications, scalable backend services, real-time systems, and reliable deployment pipelines.";
-  return {
+export const metadata: Metadata = {
+  metadataBase: getSiteUrl(),
+  title,
+  description,
+  applicationName: "Tom Deng — Portfolio OS",
+  keywords: ["software engineer", "Toronto", "TypeScript", "Python", "React", "Node.js"],
+  authors: [{ name: "Tom Deng", url: "https://github.com/shawndeng1" }],
+  creator: "Tom Deng",
+  alternates: { canonical: "/" },
+  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  openGraph: {
     title,
     description,
-    keywords: ["software engineer", "Toronto", "JavaScript", "Python", "React", "Node.js"],
-    authors: [{ name: "Tom Deng" }],
-    icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
-    openGraph: { title, description, type: "website", url: origin, siteName: "Tom Deng — Portfolio OS", images: [{ url: `${origin}/og.png`, width: 1536, height: 1024, alt: "Tom Deng software engineer portfolio workstation" }] },
-    twitter: { card: "summary_large_image", title, description, images: [`${origin}/og.png`] },
-  };
-}
+    type: "website",
+    url: "/",
+    siteName: "Tom Deng — Portfolio OS",
+    locale: "en_CA",
+    images: [{ url: "/og.png", width: 1730, height: 909, alt: "Tom Deng software engineer portfolio workstation" }],
+  },
+  twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
+};
 
 export default function RootLayout({
   children,
@@ -39,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}
       >
         {children}
       </body>

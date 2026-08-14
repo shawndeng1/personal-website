@@ -1,52 +1,68 @@
 # Developer OS Portfolio
 
-A polished personal portfolio built as a modern developer workstation. It combines a recruiter-friendly resume and project showcase with app windows, a command palette, a functional terminal, persisted themes, and a fast boot sequence.
+Tom Deng's portfolio, presented as a polished developer workstation. It combines recruiter-friendly resume and project content with animated application windows, a command palette, a functional terminal, and responsive mobile navigation.
 
-## Portfolio content
+## Tech stack
 
-All resume-backed content is centralized:
+- Next.js App Router
+- React and TypeScript
+- Tailwind CSS
+- Framer Motion
+- Lucide React
 
-- `data/profile.ts` — name, headline, introduction, contact links, education, and resume path
-- `data/projects.ts` — project cards and full README-style case studies
-- `data/experience.ts` — roles, dates, locations, and accomplishments
-- `data/skills.ts` — grouped languages, frameworks, and tools
-- `public/resume.pdf` — downloadable one-page resume
+## Local development
 
-The featured project case studies are sourced from the public GitHub repositories.
-Employment history and accomplishments remain centralized separately in `data/experience.ts`.
-
-## Run locally
-
-Requires Node.js 22.13 or newer.
-
-If `node --version` reports an older release, install the current Node.js LTS
-from [nodejs.org](https://nodejs.org/en/download), then close and reopen your
-terminal. The project includes `.nvmrc` and `.node-version` files for version
-managers and prints a clear message when the active runtime is too old.
+Node.js 22.13 or newer is required. The repository includes `.nvmrc` and `.node-version` files.
 
 ```bash
+nvm use
 npm install
+cp .env.example .env.local
 npm run dev
 ```
 
-Open `http://localhost:3000`. Use `Ctrl/Cmd + K` for the command palette.
+On Windows PowerShell, copy the environment file with:
 
-## Validate
+```powershell
+Copy-Item .env.example .env.local
+```
+
+Open [http://localhost:3000](http://localhost:3000). `SITE_URL` may remain unset locally; production should use the canonical `https://` origin.
+
+## Content
+
+- `data/profile.ts` — profile, contact links, education, and resume path
+- `data/projects.ts` — project cards and README-style case studies
+- `data/experience.ts` — work history and accomplishments
+- `data/skills.ts` — grouped languages, frameworks, and tools
+- `public/resume.pdf` — resume served at `/resume.pdf`
+- `public/og.png` — Open Graph and social sharing image
+
+## Production checks
 
 ```bash
 npm run lint
-npx tsc --noEmit
+npm run typecheck
 npm run build
 npm test
 ```
 
-## Architecture
+## Deploy to Vercel
 
-- `app/` — route, global design system, SEO and social metadata
-- `components/desktop/` — workstation shell, windows, dock, desktop icons
-- `components/apps/` — About, Projects, Experience, Skills, Resume, Contact, Terminal
-- `components/command/` — VS Code-inspired command palette
-- `components/projects/` — reusable cards and README-style detail views
-- `data/` — centralized portfolio content
+1. Push this repository to GitHub, GitLab, or Bitbucket.
+2. In Vercel, choose **Add New → Project** and import the repository.
+3. Keep the detected framework preset as **Next.js** and the build command as `npm run build`.
+4. Add `SITE_URL` in **Project Settings → Environment Variables** with the canonical production origin, such as `https://portfolio.example.com`.
+5. Deploy. Vercel installs dependencies and runs the native Next.js production build automatically.
 
-The project uses Next.js-compatible vinext output so it can run on Cloudflare Sites while retaining the Next.js app-router component model.
+Vercel supplies `VERCEL_PROJECT_PRODUCTION_URL`; the app uses it when `SITE_URL` is absent. After attaching a custom domain, set `SITE_URL` to that custom origin and redeploy so canonical, Open Graph, robots, and sitemap URLs all use it.
+
+## Production routes and assets
+
+- `/` — portfolio
+- `/resume.pdf` — downloadable/viewable resume
+- `/robots.txt` — crawler policy
+- `/sitemap.xml` — canonical sitemap
+- unknown routes — themed 404 page
+
+The site has no backend secrets or required third-party API keys. GitHub, LinkedIn, and email destinations are public profile data centralized in `data/profile.ts`.
