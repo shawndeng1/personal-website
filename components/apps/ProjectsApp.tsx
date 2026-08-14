@@ -10,7 +10,7 @@ export function ProjectsApp() {
   if (selected) return <ProjectDetails project={selected} onBack={() => setSelected(null)} />;
   return (
     <div className="projects-app">
-      <div className="app-intro"><p className="path-label">~/portfolio/projects</p><h2>Selected work</h2><p>Things I&apos;ve designed, built, broken, and made better. Placeholder projects are ready to swap with your own.</p></div>
+      <div className="app-intro"><p className="path-label">~/portfolio/projects</p><h2>Selected work</h2><p>Public projects spanning desktop software, game systems, machine learning, and product interface design.</p></div>
       <div className="project-grid">{projects.map((project) => <ProjectCard key={project.slug} project={project} onSelect={() => setSelected(project)} />)}</div>
     </div>
   );

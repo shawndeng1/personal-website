@@ -12,8 +12,8 @@ All resume-backed content is centralized:
 - `data/skills.ts` — grouped languages, frameworks, and tools
 - `public/resume.pdf` — downloadable one-page resume
 
-The project case studies summarize engineering work from the resume and correctly
-label company repositories as private.
+The featured project case studies are sourced from the public GitHub repositories.
+Employment history and accomplishments remain centralized separately in `data/experience.ts`.
 
 ## Run locally
 
